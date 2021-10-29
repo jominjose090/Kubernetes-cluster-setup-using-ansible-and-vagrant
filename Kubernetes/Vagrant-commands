@@ -1,0 +1,13 @@
+## create directory and copy Vagrantfile to the folder
+
+## start the VMs
+vagrant up
+
+## ShutDown Cluster
+vagrant halt
+
+## Destroy the Cluster
+vagrant destroy -f
+
+## SSH to VMs
+vagrant ssh master
