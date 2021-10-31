@@ -1,4 +1,4 @@
--
+
  
     - name: Remove swapfile from /etc/fstab
       mount:
