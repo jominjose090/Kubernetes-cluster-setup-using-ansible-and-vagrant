@@ -1,5 +1,5 @@
-
-- name: system setup and package installation
+- 
+  - name: system setup and package installation
   hosts: all
   become: true
   roles:
@@ -7,15 +7,15 @@
     - installpackages
     - mastersetup
     - workersetup
-
-- name: master node setup
-  hosts: master
-  become: true
-  roles:
-    - mastersetup
-
-- name: worker node setup
-  hosts: worker
-  become: true
-  roles:
-    - workersetup
+  
+  - name: master node setup
+    hosts: master
+    become: true
+    roles:
+      - mastersetup
+  
+  - name: worker node setup
+    hosts: worker
+    become: true
+    roles:
+      - workersetup
