@@ -1,9 +1,5 @@
 -
-  name: Initialize kubernetes cluster
-  hosts: master
-  become: true
-  #remote_user: root
-  tasks:
+ 
     - name: Initialize the Kubernetes cluster using kubeadm
       command: kubeadm init --pod-network-cidr={{ network_cidr }} --apiserver-advertise-address={{ masternode_ip }}
 
