@@ -1,0 +1,25 @@
+-
+  name: Initialize kubernetes cluster
+  hosts: master
+  become: true
+  #remote_user: root
+  tasks:
+    - name: Initialize the Kubernetes cluster using kubeadm
+      command: kubeadm init --pod-network-cidr={{ network_cidr }} --apiserver-advertise-address={{ masternode_ip }}
+
+    - name: Setup kubeconfig for vagrant user
+      shell: |
+        mkdir -p $HOME/.kube
+        sudo  cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+        sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+    - name: Install calico pod network
+      become: false
+      command: kubectl create -f https://docs.projectcalico.org/v3.19/manifests/calico.yaml
+
+    - name: Generate join token and store to a file
+      shell: kubeadm token create --print-join-command
+      register: join_token
+    
+    - name: create join command and store
+      local_action: copy content={{ join_token.stdout }} dest="/tmp/join_command.sh"

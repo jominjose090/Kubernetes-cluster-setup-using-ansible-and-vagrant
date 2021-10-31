@@ -1,0 +1,11 @@
+-
+  hosts: worker
+  become: true
+  tasks:
+    - name: copy the join command to worker nodes
+      copy:
+        src: "/tmp/join_command.sh"
+        dest: "/tmp/join_command.sh"
+    
+    - name: join the worker nodes to cluster
+      shell: "sh /tmp/join_command.sh"
