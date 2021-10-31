@@ -1,12 +1,12 @@
 - 
   - name: system setup and package installation
-  hosts: all
-  become: true
-  roles:
-    - common
-    - installpackages
-    - mastersetup
-    - workersetup
+    hosts: all
+    become: true
+    roles:
+      - common
+      - installpackages
+      - mastersetup
+      - workersetup
   
   - name: master node setup
     hosts: master
