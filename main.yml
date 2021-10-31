@@ -1,16 +1,23 @@
 ---
-- hosts: all
-  become: true
-  roles:
-    - common
-    - installpackages
-    
-- hosts: master
-  become: true
-  roles:
-    - mastersetup
-
-- hosts: worker
-  become: true
-  roles:
-    - workersetup
+ -
+   name: test1
+   hosts: all
+   become: true
+   roles:
+     - common
+     - installpackages
+ 
+ 
+ -
+   name: test2
+   hosts: master
+   become: true
+   roles:
+     - mastersetup
+ 
+ -
+   name: test3
+   hosts: worker
+   become: true
+   roles:
+     - workersetup
