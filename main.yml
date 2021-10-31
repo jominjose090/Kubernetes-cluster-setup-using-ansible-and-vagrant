@@ -1,4 +1,4 @@
-- 
+ 
   - name: system setup and package installation
     hosts: all
     become: true
