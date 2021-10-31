@@ -1,9 +1,5 @@
 -
-  name: Create kubernetes cluster
-  hosts: all
-  become: true
-  #remote_user: root
-  tasks:
+ 
     - name: Remove swapfile from /etc/fstab
       mount:
         name: swap
