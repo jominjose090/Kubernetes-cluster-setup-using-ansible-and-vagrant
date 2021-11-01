@@ -1,2 +1,4 @@
-network_cidr: "10.0.0.10/16"
-masternode_ip: "10.0.0.10"
+network_cidr: "{{ ansible_host }}/16"
+#masternode_ip: "10.0.0.10"
+#test
+masternode_ip: "{{ ansible_host }}"
