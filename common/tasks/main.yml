@@ -1,10 +1,10 @@
 ---
  
  - name: Remove swapfile from /etc/fstab
-   mount:
-     name: swap
-     fstype: swap
-     state: absent
+   replace:
+         path: /etc/fstab
+         regexp: '(\/swap|swapfile*)'
+         replace: '# \1'
  - name: turn off swap
    command: swapoff -a
  - name: Disable SELinux
