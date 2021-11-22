@@ -1,4 +1,4 @@
-## create directory and copy Vagrantfile to the folder
+## create project directory and copy Vagrantfile to the folder ##
 
 ## start the VMs
 vagrant up
